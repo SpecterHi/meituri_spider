@@ -17,7 +17,7 @@ headers = {
 }
 
 os_path = input('请输入要保存相册的路径，按回车使用当前目录：\n')
-if os_path is None:
+if os_path is '':
     os_path = './'
 
 print("相册将保存到：%s" %(os_path))
