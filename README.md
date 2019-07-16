@@ -13,10 +13,10 @@
 
 ```
 pip install bs4 requests lxml
-python getAlbums.py
+python getalbums.py
 ```
 
-- 然后按提示输入起始页面，实测至少支持两类：
+- 然后按提示输入多个起始页面，实测至少支持两类：
   1. 模特页面，如https://www.meituri.com/t/2441/，通过网站首页“美女库”进入
   2. 机构页面，如https://www.meituri.com/x/37/，通过网站首页“写真机构”进入
 - 再输入保存路径，默认为当前目录
