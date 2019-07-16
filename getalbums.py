@@ -2,24 +2,26 @@ import requests
 from bs4 import BeautifulSoup
 import get_one_album as goa
 import os
+from functools import partial
+
+inputNew = partial(input,'请输入想要下载的起始页面url，按回车输入下一个url，输入666按回车进入下一步：\n')
+sentinel = '666' # 遇到这个就结束
+url_list = []
+for line in iter(inputNew, sentinel):
+    url_list.append(line)
+    url = line
+
 headers = {
     'User-Agent' :'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
     'Referer': 'https://www.meituri.com/t/4074/'
 }
 
-# url = 'https://www.meituri.com/t/4074/'
-# url_list = ['https://www.meituri.com/t/4074/']
+os_path = input('请输入要保存相册的路径，按回车使用当前目录：\n')
+if os_path is None:
+    os_path = './'
 
-url = 'https://www.meituri.com/t/2441/'
-url_list = ['https://www.meituri.com/t/2441/']
+print("相册将保存到：%s" %(os_path))
 
-#url = 'https://www.meituri.com/t/646/'
-#url_list = ['https://www.meituri.com/t/646/']
-
-# url = 'https://www.meituri.com/t/296/'  #有第二页
-# url_list = ['https://www.meituri.com/t/296/']
-
-os_path = 'D://爬虫/'
 album_url_list = [] #各相册链接
 
 def parse_url(url):
